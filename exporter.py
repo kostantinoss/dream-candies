@@ -1,3 +1,6 @@
 class Exporter:
-    def __init__(self) -> None:
-        pass
+
+    @staticmethod
+    def export(string: str, filename: str):
+        with open(filename, 'a') as file:
+            file.write(string)

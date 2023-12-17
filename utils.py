@@ -1,7 +1,13 @@
-from typing import List
+from typing import Dict, List, Set
 
 
-def read_lines_from(filename):
+def lookup_set() -> Set[str]:
+    return
+
+def to_dict() -> Dict[str, str]:
+    return
+
+def read_lines_from(filename) -> None:
     with open(filename, 'r') as file:
         file.readline()
         for line in file:
