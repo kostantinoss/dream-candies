@@ -4,15 +4,8 @@ EXP OUTPUT: three smaller files containing the extracted customer data from the 
 '''
 
 from typing import Type
-from customer_extraction_strategy import CustomerInvoicesExtractionStrategy
+from extraction_strategy import ExtractionStrategy, CustomerInvoicesExtractionStrategy
 
-
-class ExtractionStrategy:
-    def __init__(self) -> None:
-        pass
-
-    def implement(self):
-        pass
 
 
 class DreamCandy:

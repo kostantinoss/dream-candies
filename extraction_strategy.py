@@ -1,9 +1,19 @@
-
-from typing import Set, Type
-from dream_candies import ExtractionStrategy
+from typing import Set
 from extractor import Extractor
 
+
+class ExtractionStrategy:
+    def __init__(self) -> None:
+        pass
+
+    def implement(self):
+        pass
+
 class CustomerInvoicesExtractionStrategy(ExtractionStrategy):
+    """
+    `CustomerInvoicesExtractionStrategy` deals with the extraction of data
+    as described in section 1, 1.1, 1.2, 
+    """
     def __init__(self) -> None:
         super().__init__()
         self._extractor = Extractor()
@@ -25,11 +35,11 @@ class CustomerInvoicesExtractionStrategy(ExtractionStrategy):
             lookup_set=customer_sample,
             key='CUSTOMER_CODE',
             filename='data/input/invoice.csv',
-            output_file='data/input/invoice.csv'
+            output_file='data/output/invoice.csv'
         )
 
         invoices = self.create_set(
-            filename='data/input/customer_sample.csv',
+            filename='data/input/invoice.csv',
             key='INVOICE_CODE'
         )
 
@@ -42,7 +52,7 @@ class CustomerInvoicesExtractionStrategy(ExtractionStrategy):
 
         print("CustomerInvoicesExtractionStrategy")
     
-    def create_set(filename: str, key: str) -> Set[str]:
+    def create_set(self, filename: str, key: str) -> Set[str]:
         """
         Creates a set from a `.csv` file containing the values under `key` column
         """
@@ -64,5 +74,5 @@ class CustomerInvoicesExtractionStrategy(ExtractionStrategy):
                             .strip() \
                             .split(',')
                 output.add(line[index_of_key])
-        
+        print(output)
         return output
