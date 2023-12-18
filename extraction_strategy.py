@@ -7,6 +7,7 @@ class ExtractionStrategy:
         pass
 
     def implement(self):
+        """Override from a cpncrete class to implement custom logic"""
         pass
 
 class CustomerInvoicesExtractionStrategy(ExtractionStrategy):
@@ -49,8 +50,6 @@ class CustomerInvoicesExtractionStrategy(ExtractionStrategy):
             filename='data/input/invoice_items.csv',
             output_file='data/output/invoice_items.csv'
         )
-
-        print("CustomerInvoicesExtractionStrategy")
     
     def create_set(self, filename: str, key: str) -> Set[str]:
         """
@@ -74,5 +73,5 @@ class CustomerInvoicesExtractionStrategy(ExtractionStrategy):
                             .strip() \
                             .split(',')
                 output.add(line[index_of_key])
-        print(output)
+        
         return output
